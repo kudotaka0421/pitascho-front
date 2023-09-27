@@ -25,7 +25,7 @@
             </div>
         </div>
     </div>
-    <SignupForm v-else />
+    <SignupForm v-else @signup="signup" />
 </template>
 
 <script setup lang="ts">
@@ -33,5 +33,5 @@ import SignupForm from "../../components/Signup/SignupForm.vue";
 
 import { useSignup } from "./useSignup";
 
-const { isAuthenticationMailSent } = useSignup();
+const { signup, isAuthenticationMailSent } = useSignup();
 </script>
