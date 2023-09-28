@@ -47,7 +47,6 @@ const router = createRouter({
     routes,
 });
 
-
 router.afterEach((to) => {
     if (to.name === "NotFound") {
         window.location.href = "/error";

@@ -1,6 +1,6 @@
 import { ref, computed } from "vue";
 import { useAlertStore } from "./store/alert";
-// import { CalendarIcon, UsersIcon } from "@heroicons/vue/24/outline";
+import { UsersIcon } from "@heroicons/vue/24/outline";
 import { useMeStore } from "./store/me";
 
 export function useApp() {
@@ -26,51 +26,22 @@ export function useApp() {
         window.location.href = "/login";
     };
 
-    // const navigation = computed(() => {
-    //     if (meStore.isStaff) {
-    //         return [
-    //             {
-    //                 name: "カウンセリング一覧",
-    //                 href: "counselings",
-    //                 icon: UsersIcon,
-    //                 current: false,
-    //             },
-    //             {
-    //                 name: "スクール一覧",
-    //                 href: "/schools",
-    //                 icon: UsersIcon,
-    //                 current: false,
-    //             },
-    //         ];
-    //     } else if (meStore.isAdmin) {
-    //         return [
-    //             {
-    //                 name: "カウンセリング一覧",
-    //                 href: "/counselings",
-    //                 icon: UsersIcon,
-    //                 current: false,
-    //             },
-    //             {
-    //                 name: "スクール一覧",
-    //                 href: "/schools",
-    //                 icon: UsersIcon,
-    //                 current: false,
-    //             },
-    //             {
-    //                 name: "ユーザー一覧",
-    //                 href: "/users",
-    //                 icon: CalendarIcon,
-    //                 current: false,
-    //             },
-    //             {
-    //                 name: "タグ一覧",
-    //                 href: "/tags",
-    //                 icon: CalendarIcon,
-    //                 current: false,
-    //             },
-    //         ];
-    //     }
-    // });
+    const navigation = computed(() => {
+        return [
+            {
+                name: "スクール一覧",
+                href: "/schools",
+                icon: UsersIcon,
+                current: false,
+            },
+            {
+                name: "ユーザー一覧",
+                href: "/users",
+                icon: UsersIcon,
+                current: false,
+            },
+        ];
+    });
 
     const isNotRequireAuthenticationPage = computed(() => {
         const unauthenticatedPaths = ["/login", "/signup", "/lp", "/error"];
@@ -100,7 +71,7 @@ export function useApp() {
     });
 
     return {
-        // navigation,
+        navigation,
         userNavigation,
         handleClick,
         logout,
