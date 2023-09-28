@@ -7,6 +7,7 @@ import Error from "../pages/Error/Error.vue";
 import Lp from "../pages/Lp/Lp.vue";
 import Users from "../pages/Users/Users.vue";
 import UserDetail from "../pages/UserDetail/UserDetail.vue";
+import UserCreate from "../pages/UserCreate/UserCreate.vue";
 
 import { userRole } from "@/types/user";
 import { useMeStore } from "@/store/me";
@@ -43,6 +44,15 @@ const routes: RouteRecordRaw[] = [
         path: "/users/:userId",
         name: "UserDetail",
         component: UserDetail,
+        meta: {
+            requiresAuth: true,
+            allowedRoles: [userRole.Admin],
+        },
+    },
+    {
+        path: "/userCreate",
+        name: "UserCreate",
+        component: UserCreate,
         meta: {
             requiresAuth: true,
             allowedRoles: [userRole.Admin],

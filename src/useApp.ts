@@ -27,20 +27,31 @@ export function useApp() {
     };
 
     const navigation = computed(() => {
-        return [
-            {
-                name: "スクール一覧",
-                href: "/schools",
-                icon: UsersIcon,
-                current: false,
-            },
-            {
-                name: "ユーザー一覧",
-                href: "/users",
-                icon: UsersIcon,
-                current: false,
-            },
-        ];
+        if (meStore.isStaff) {
+            return [
+                {
+                    name: "スクール一覧",
+                    href: "/schools",
+                    icon: UsersIcon,
+                    current: false,
+                },
+            ];
+        } else {
+            return [
+                {
+                    name: "スクール一覧",
+                    href: "/schools",
+                    icon: UsersIcon,
+                    current: false,
+                },
+                {
+                    name: "ユーザー一覧",
+                    href: "/users",
+                    icon: UsersIcon,
+                    current: false,
+                },
+            ];
+        }
     });
 
     const isNotRequireAuthenticationPage = computed(() => {
