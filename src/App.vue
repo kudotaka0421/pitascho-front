@@ -16,7 +16,7 @@ import BaseAlert from "./components/BaseAlert.vue";
 import { useApp } from "./useApp";
 
 const {
-    // navigation,
+    navigation,
     userNavigation,
     handleClick,
     sidebarOpen,
