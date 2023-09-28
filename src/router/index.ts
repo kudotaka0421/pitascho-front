@@ -5,6 +5,7 @@ import Login from "../pages/Login/Login.vue";
 import Schools from "../pages/Schools/Schools.vue";
 import Error from "../pages/Error/Error.vue";
 import Lp from "../pages/Lp/Lp.vue";
+import Users from "../pages/Users/Users.vue";
 
 import { userRole } from "@/types/user";
 import { useMeStore } from "@/store/me";
@@ -27,6 +28,15 @@ const routes: RouteRecordRaw[] = [
         path: "/login",
         name: "Login",
         component: Login,
+    },
+    {
+        path: "/users",
+        name: "Users",
+        component: Users,
+        meta: {
+            requiresAuth: true,
+            allowedRoles: [userRole.Admin],
+        },
     },
     {
         path: "/lp",
