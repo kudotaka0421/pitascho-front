@@ -1,4 +1,4 @@
-import { useAlertStore } from "../../store/alert";
+import { useAlertStore } from "@/store/alert";
 import { User } from "../../types/user";
 import { ref } from "vue";
 import { createAxiosInstance } from "@/utils/axiosinstance";
